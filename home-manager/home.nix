@@ -43,7 +43,7 @@
   home = {
     username = "tblair";
     homeDirectory = "/home/tblair";
-    packages = builtins.attrValues { inherit (pkgs) nixfmt ripgrep; };
+    packages = builtins.attrValues { inherit (pkgs) nixfmt ripgrep python312; };
   };
 
   # Add stuff for your user as you see fit:
@@ -52,6 +52,7 @@
 
   programs.home-manager.enable = true;
   programs.git.enable = true;
+  programs.gpg.enable = true;
 
   programs.bash = {
     enable = true;
@@ -69,6 +70,7 @@
     shellAliases = {
       nixd = "nix profile diff-closures --profile /nix/var/nix/profiles/system";
       rebuild = "home-manager switch --flake .#'tblair@home'";
+      reload = "exec zsh";
       ls = "eza --long --group --group-directories-first";
       la = "eza --long --group --group-directories-first";
       lr = "eza --long --group --tree --level 3 --group-directories-first";
