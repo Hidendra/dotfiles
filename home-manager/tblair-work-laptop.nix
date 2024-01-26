@@ -23,7 +23,7 @@
       # Don't forward the display for now
       DISPLAY = "";
     };
-    packages = builtins.attrValues { inherit (pkgs) nixfmt ripgrep python312; };
+    packages = builtins.attrValues { inherit (pkgs) azure-cli awscli2 nixfmt ripgrep python312; };
   };
 
   programs.home-manager.enable = true;
