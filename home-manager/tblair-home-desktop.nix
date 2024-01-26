@@ -1,8 +1,5 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
-  imports = [
-    ./vim.nix
-    ./zsh.nix
-  ];
+  imports = [ ./vim.nix ./zsh.nix ];
 
   nixpkgs = {
     overlays = [
@@ -34,7 +31,7 @@
   };
 
   programs.zsh.shellAliases = {
-    rebuild = "home-manager switch --flake .#'tblair-home-desktop'";
+    rebuild = "home-manager switch --flake .#tblair-home-desktop";
   };
 
   # Nicely reload system units when changing configs
