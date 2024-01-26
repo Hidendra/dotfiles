@@ -59,13 +59,21 @@
     # Standalone home-manager configuration entrypoint
     # Available through 'home-manager --flake .#your-username@your-hostname'
     homeConfigurations = {
-      # home-manager switch --flake .#tblair
-      "tblair@home" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+      # home-manager switch --flake .#tblair-home-desktop
+      tblair-home-desktop = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-          # > Our main home-manager configuration file <
-          ./home-manager/home.nix
+          ./home-manager/tblair-home-desktop.nix
+        ];
+      };
+
+      # home-manager switch --flake .#tblair-work-laptop
+      tblair-work-laptop = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
+          ./home-manager/tblair-work-laptop.nix
         ];
       };
     };
