@@ -46,13 +46,10 @@
     packages = builtins.attrValues { inherit (pkgs) nixfmt ripgrep python312; };
   };
 
-  # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
-
   programs.home-manager.enable = true;
   programs.git.enable = true;
   programs.gpg.enable = true;
+  programs.eza.enable = true;
 
   programs.bash = {
     enable = true;
@@ -92,9 +89,12 @@
     # initExtra = builtins.readFile ./zshrc;
   };
 
-  programs.eza.enable = true;
-
   programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.z-lua = {
     enable = true;
     enableZshIntegration = true;
   };
@@ -121,11 +121,6 @@
       set nrformats-=octal
       set mouse=a
     '';
-  };
-
-  programs.z-lua = {
-    enable = true;
-    enableZshIntegration = true;
   };
 
   # Nicely reload system units when changing configs
