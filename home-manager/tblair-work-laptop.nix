@@ -1,8 +1,5 @@
 { inputs, outputs, lib, config, pkgs, ... }: {
-  imports = [
-    ./vim.nix
-    ./zsh.nix
-  ];
+  imports = [ ./vim.nix ./zsh.nix ];
 
   nixpkgs = {
     overlays = [
@@ -21,9 +18,11 @@
     homeDirectory = "/home/tblair";
     sessionVariables = {
       # Don't forward the display for now
-      DISPLAY = "";
+      DISPLAY = ""; # :0
     };
-    packages = builtins.attrValues { inherit (pkgs) azure-cli awscli2 nixfmt ripgrep python312; };
+    packages = builtins.attrValues {
+      inherit (pkgs) azure-cli awscli2 nixfmt ripgrep python312;
+    };
   };
 
   programs.home-manager.enable = true;
