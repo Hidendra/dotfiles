@@ -15,10 +15,17 @@
     ...
   } @ inputs: {
     homeConfigurations = {
-      tblair-nixos-server = home-manager.lib.homeManagerConfiguration {
+      tblair-nixos-server-x86_64 = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
           ./home-manager/tblair-nixos-server.nix
+        ];
+      };
+
+      tblair-nixos-server-aarch64 = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.aarch64-linux;
+        modules = [
+          # ./home-manager/tblair-nixos-server.nix
         ];
       };
 
