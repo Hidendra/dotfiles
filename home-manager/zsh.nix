@@ -1,6 +1,6 @@
 
 
-{ config, ... }: {
+{ ... }: {
   programs.eza.enable = true;
 
   programs.zsh = {
@@ -10,7 +10,8 @@
     enableAutosuggestions = true;
     enableCompletion = true;
     history = {
-      path = "${config.xdg.dataHome}/zsh/history";
+      # ${config.xdg.dataHome}
+      path = "$HOME/.local/share/zsh/history";
       save = 100000;
       size = 100000;
       share = true;

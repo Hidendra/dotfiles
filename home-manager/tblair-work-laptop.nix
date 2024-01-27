@@ -1,17 +1,5 @@
-{ inputs, outputs, lib, config, pkgs, ... }: {
+{ inputs, lib, pkgs, ... }: {
   imports = [ ./vim.nix ./zsh.nix ];
-
-  nixpkgs = {
-    overlays = [
-      outputs.overlays.additions
-      outputs.overlays.modifications
-      outputs.overlays.unstable-packages
-    ];
-    config = {
-      allowUnfree = true;
-      allowUnfreePredicate = _: true;
-    };
-  };
 
   home = {
     username = "tblair";
