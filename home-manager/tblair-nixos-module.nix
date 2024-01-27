@@ -4,7 +4,7 @@
   home = {
     username = "tblair";
     homeDirectory = "/home/tblair";
-    packages = builtins.attrValues { inherit (pkgs) nixfmt ripgrep python312; };
+    packages = builtins.attrValues { inherit (pkgs) ripgrep; };
   };
 
   programs.home-manager.enable = true;
