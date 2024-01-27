@@ -15,22 +15,22 @@
     ...
   } @ inputs: {
     homeConfigurations = {
-      tblair-nixos-server-x86_64 = home-manager.lib.homeManagerConfiguration {
+      tblair-nixos-server-x86_64 = home-manager.lib.homeManagerConfiguration rec {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
           ./home-manager/tblair-nixos-server.nix
         ];
       };
 
-      tblair-nixos-server-aarch64 = home-manager.lib.homeManagerConfiguration {
+      tblair-nixos-server-aarch64 = home-manager.lib.homeManagerConfiguration rec {
         pkgs = nixpkgs.legacyPackages.aarch64-linux;
         modules = [
-          # ./home-manager/tblair-nixos-server.nix
+          ./home-manager/tblair-nixos-server.nix
         ];
       };
 
       # home-manager switch --flake .#tblair-home-desktop
-      tblair-home-desktop = home-manager.lib.homeManagerConfiguration {
+      tblair-home-desktop = home-manager.lib.homeManagerConfiguration rec {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
           ./home-manager/tblair-home-desktop.nix
@@ -38,7 +38,7 @@
       };
 
       # home-manager switch --flake .#tblair-work-laptop
-      tblair-work-laptop = home-manager.lib.homeManagerConfiguration {
+      tblair-work-laptop = home-manager.lib.homeManagerConfiguration rec {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
           ./home-manager/tblair-work-laptop.nix
