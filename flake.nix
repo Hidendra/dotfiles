@@ -8,41 +8,24 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    home-manager,
-    ...
-  } @ inputs: {
+  outputs = { self, nixpkgs, home-manager, ... }: {
+    nixosModule = {
+      home-manager.users.tblair = { ... }: {
+        imports = [ ./home-manager/tblair-nixos-module.nix ];
+      };
+    };
+
     homeConfigurations = {
-      tblair-nixos-server-x86_64 = home-manager.lib.homeManagerConfiguration rec {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [
-          ./home-manager/tblair-nixos-server.nix
-        ];
-      };
-
-      tblair-nixos-server-aarch64 = home-manager.lib.homeManagerConfiguration rec {
-        pkgs = nixpkgs.legacyPackages.aarch64-linux;
-        modules = [
-          ./home-manager/tblair-nixos-server.nix
-        ];
-      };
-
       # home-manager switch --flake .#tblair-home-desktop
-      tblair-home-desktop = home-manager.lib.homeManagerConfiguration rec {
+      tblair-home-desktop = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [
-          ./home-manager/tblair-home-desktop.nix
-        ];
+        modules = [ ./home-manager/tblair-home-desktop.nix ];
       };
 
       # home-manager switch --flake .#tblair-work-laptop
-      tblair-work-laptop = home-manager.lib.homeManagerConfiguration rec {
+      tblair-work-laptop = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
-        modules = [
-          ./home-manager/tblair-work-laptop.nix
-        ];
+        modules = [ ./home-manager/tblair-work-laptop.nix ];
       };
     };
   };
