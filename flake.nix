@@ -22,6 +22,12 @@
         modules = [ ./home-manager/tblair-home-desktop.nix ];
       };
 
+      # home-manager switch --flake .#tblair-home-m1-laptop
+      tblair-home-m1-laptop = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+        modules = [ ./home-manager/tblair-home-m1-laptop.nix ];
+      };
+
       # home-manager switch --flake .#tblair-work-laptop
       tblair-work-laptop = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;

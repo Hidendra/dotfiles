@@ -3,9 +3,9 @@
 
   home = {
     username = "tblair";
-    homeDirectory = "/home/tblair";
+    homeDirectory = "/Users/tblair";
     packages =
-      builtins.attrValues { inherit (pkgs) nixfmt jq ripgrep python312; };
+      builtins.attrValues { inherit (pkgs) nixfmt jq htop ripgrep python312; };
   };
 
   programs.home-manager.enable = true;
@@ -20,7 +20,7 @@
   };
 
   programs.zsh.shellAliases = {
-    rebuild = "home-manager switch --flake .#tblair-home-desktop";
+    rebuild = "home-manager switch --flake .#tblair-home-m1-laptop";
   };
 
   # Nicely reload system units when changing configs

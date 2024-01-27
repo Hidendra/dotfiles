@@ -9,7 +9,7 @@
       DISPLAY = ""; # :0
     };
     packages = builtins.attrValues {
-      inherit (pkgs) azure-cli awscli2 nixfmt ripgrep python312;
+      inherit (pkgs) azure-cli awscli2 nixfmt jq ripgrep python312;
     };
   };
 

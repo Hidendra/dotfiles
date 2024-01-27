@@ -4,7 +4,7 @@
   home = {
     username = "tblair";
     homeDirectory = "/home/tblair";
-    packages = builtins.attrValues { inherit (pkgs) ripgrep; };
+    packages = builtins.attrValues { inherit (pkgs) jq ripgrep; };
   };
 
   programs.home-manager.enable = true;
