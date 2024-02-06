@@ -6,10 +6,10 @@
     homeDirectory = "/home/tblair";
     sessionVariables = {
       # Don't forward the display for now
-      DISPLAY = ""; # :0
+      DISPLAY = ":0";
     };
     packages = builtins.attrValues {
-      inherit (pkgs) azure-cli awscli2 nixfmt jq ripgrep python312;
+      inherit (pkgs) pdm pyenv awscli2 nixfmt jq ripgrep python3 ;
     };
   };
 
