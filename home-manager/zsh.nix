@@ -20,8 +20,7 @@
     shellAliases = {
       nixd = "nix profile diff-closures --profile /nix/var/nix/profiles/system";
       reload = "exec zsh";
-      ls = "eza --long --group --group-directories-first";
-      la = "eza --long --group --all --group-directories-first";
+      ls = "eza --long --group --all --group-directories-first";
       lr = "eza --long --group --tree --level 3 --group-directories-first";
       lR = "eza --long --group --tree --group-directories-first";
       nixgc = "nix-collect-garbage -d";
