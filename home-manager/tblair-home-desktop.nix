@@ -5,7 +5,7 @@
     username = "tblair";
     homeDirectory = "/home/tblair";
     packages =
-      builtins.attrValues { inherit (pkgs) nixfmt jq ripgrep python312; };
+      builtins.attrValues { inherit (pkgs) nixfmt jq ripgrep python312 yt-dlp; };
   };
 
   programs.home-manager.enable = true;
