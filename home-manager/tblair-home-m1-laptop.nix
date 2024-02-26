@@ -20,7 +20,8 @@
   };
 
   programs.zsh.shellAliases = {
-    rebuild = "home-manager switch --flake .#tblair-home-m1-laptop";
+    rebuild = "home-manager switch --flake ~/projects/dotfiles#tblair-home-m1-laptop";
+    rebuild-darwin = "nix --extra-experimental-features nix-command --extra-experimental-features flakes run nix-darwin -- switch --flake ~/projects/homelab-k8s/nixos-config";
   };
 
   # Nicely reload system units when changing configs
