@@ -24,6 +24,17 @@
     rebuild-darwin = "nix --extra-experimental-features nix-command --extra-experimental-features flakes run nix-darwin -- switch --flake ~/projects/homelab-k8s/nixos-config";
   };
 
+  programs.zsh.initExtra = ''
+    # nix-darwin: macOS system updates can break nix installation
+    # The workaround is to ensure the nix daemon hook is in the user's zshrc
+    # Issue: https://github.com/NixOS/nix/issues/3616
+    if [ -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]; then
+      source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+    fi
+
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+  '';
+
   # Nicely reload system units when changing configs
   # systemd.user.startServices = "sd-switch";
 
