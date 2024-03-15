@@ -9,7 +9,7 @@
       DISPLAY = ":0";
     };
     packages = builtins.attrValues {
-      inherit (pkgs) pdm pyenv awscli2 nixfmt jq ripgrep python3 ;
+      inherit (pkgs) pdm pyenv awscli2 nixfmt jq ripgrep python3 yamllint csvkit influxdb2-cli;
     };
   };
 
@@ -64,7 +64,8 @@
   };
 
   programs.zsh.shellAliases = {
-    rebuild = "home-manager switch --flake .#tblair-work-laptop";
+    rebuild = "cd ~/projects/dotfiles && home-manager switch --flake .#tblair-work-laptop";
+    dotenv = "export $(xargs < .env)";
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
