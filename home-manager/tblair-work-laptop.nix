@@ -9,7 +9,7 @@
       DISPLAY = ":0";
     };
     packages = builtins.attrValues {
-      inherit (pkgs) pdm pyenv awscli2 nixfmt jq ripgrep python3 yamllint csvkit influxdb2-cli powershell;
+      inherit (pkgs) pdm pyenv awscli2 nixfmt jq ripgrep python3 yamllint csvkit influxdb2-cli powershell parallel;
     };
   };
 
